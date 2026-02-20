@@ -45,5 +45,6 @@ public class SynchronizationDemo {
         MyThread2 t2 = new MyThread2(obj);
         t1.start();
         t2.start();
+        System.out.println();
     }
 }
