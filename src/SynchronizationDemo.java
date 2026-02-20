@@ -1,5 +1,5 @@
 class Table {
-    synchronized void printTable(int n) {
+    synchronized void printTable(int n,boolean newline) {
         for (int i = 1; i <= 5; i++) {
             System.out.print(n * i + " ");
             try {
@@ -9,7 +9,9 @@ class Table {
                 System.out.println(e);
             }
         }
-        System.out.println();
+        if (newline) {
+           System.out.println();
+        }
     }
 }
 
@@ -19,7 +21,7 @@ class MyThread1 extends Thread {
         this.t = t;
     }
     public void run() {
-        t.printTable(5);
+        t.printTable(5,true);
     }
 }
 
@@ -29,7 +31,7 @@ class MyThread2 extends Thread {
         this.t = t;
     }
     public void run() {
-        t.printTable(100);
+        t.printTable(100,false);
     }
 }
 
