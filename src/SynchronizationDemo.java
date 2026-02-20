@@ -10,7 +10,7 @@ class Table {
             }
         }
         if (newline) {
-           System.out.println();
+           System.out.println("");
         }
     }
 }
