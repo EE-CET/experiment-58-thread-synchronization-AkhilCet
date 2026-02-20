@@ -1,17 +1,20 @@
 class Table {
-    synchronized void printTable(int n,boolean newline) {
+    synchronized void printTable(int n) {
         for (int i = 1; i <= 5; i++) {
-            System.out.print(n * i + " ");
+            System.out.print(n * i);
+
+            if (i < 5) {
+                System.out.print(" ");
+            }
             try {
-                // Pause the thread to make synchronization effect more visible
+                
                 Thread.sleep(400);
             } catch (InterruptedException e) {
                 System.out.println(e);
             }
         }
-        if (newline) {
-           System.out.println("");
-        }
+       
+        System.out.println();
     }
 }
 
@@ -21,7 +24,7 @@ class MyThread1 extends Thread {
         this.t = t;
     }
     public void run() {
-        t.printTable(5,true);
+        t.printTable(5);
     }
 }
 
@@ -31,7 +34,7 @@ class MyThread2 extends Thread {
         this.t = t;
     }
     public void run() {
-        t.printTable(100,false);
+        t.printTable(100);
     }
 }
 
