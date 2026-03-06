@@ -26,7 +26,7 @@ public class SynchronizationDemo {
             thread1.join();
 
             
-            System.out.print("\n");
+            System.out.println();
 
             
             thread2.start();
